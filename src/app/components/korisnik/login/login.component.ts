@@ -1,4 +1,4 @@
-// login.component.ts
+
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Korisnik } from 'src/app/models/student.model';
