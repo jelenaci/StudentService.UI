@@ -1,0 +1,43 @@
+<div class="container my-5">
+
+    <h3 class="mb-3">Dodaj položen ispit</h3>
+
+    <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+      {{ errorMessage }}
+    </div>
+
+    <form (ngSubmit)="addPolozenIspit()" #polozenIspitForm="ngForm">
+
+        <div class="form-group">
+          <label for="student">Izaberi studenta:</label>
+          <select id="student" name="student" [(ngModel)]="polozenIspit.studentID" required>
+            <option *ngFor="let student of students" [value]="student.studentID">
+              {{ student.ime }} {{ student.prezime }}
+            </option>
+          </select>
+        </div>
+          
+        <div class="form-group">
+          <label for="predmet">Izaberi predmet:</label>
+          <select id="predmet" name="predmet" [(ngModel)]="polozenIspit.predmetID" required>
+          <option *ngFor="let predmet of predmeti" [value]="predmet.predmetID">
+            {{ predmet.naziv }}
+          </option>
+          </select>
+        </div>
+  
+        <div class="form-group">
+          <label for="ocena">Ocena:</label>
+          <input type="number" id="ocena" name="ocena" [(ngModel)]="polozenIspit.ocena" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="datumPolaganja">Datum polaganja:</label>
+          <input type="date" id="datumPolaganja" name="datumPolaganja" [(ngModel)]="polozenIspit.datumPolaganja" required>
+        </div>
+  
+        <button type="submit" class="btn btn-primary">Sačuvaj</button>
+        
+    </form>
+</div>
+  

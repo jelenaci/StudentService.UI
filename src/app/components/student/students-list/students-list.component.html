@@ -1,0 +1,51 @@
+<div class="container" mb-5>
+    <h3 class="mb-3">Lista svih studenata</h3>
+    <div class="mb-3">
+      <button class="btn btn-primary" [routerLink]="['/student/add']">Kreiraj studenta</button><br><br>
+      <button class="btn btn-primary" [routerLink]="['/student/add-polozen-ispit']">Dodaj ispit</button>
+    </div>
+    <table class="table" *ngIf="students && students.length > 0">
+
+        <thead>
+
+          <tr>
+
+            <th scope="col">Id</th>
+            <th scope="col">Ime</th>
+            <th scope="col">Prezime</th>
+            <th scope="col">Broj indeksa</th>
+            <th scope="col">Datum rodjenja</th>
+            <th scope="col">Adresa</th>
+            <th scope="col">Telefon</th>
+            <th scope="col">Akcija</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let student of students">
+
+           <td> {{student.studentID }}</td>
+            <td>{{student.ime}}</td>
+            <td>{{student.prezime}}</td>
+            <td>{{student.brojIndeksa}}</td>
+            <td>{{student.datumRodjenja}}</td>
+            <td>{{student.adresa}}</td>
+            <td>{{student.telefon}}</td>
+            <td>
+
+              <a [routerLink]="['/student/details', student.studentID]">Pregled</a><br>
+              <a (click)="deleteStudent(student.studentID)">Obriši</a>
+
+            </td>
+
+          </tr>
+
+        </tbody>
+      </table>
+
+      <p *ngIf="!students || students.length <= 0">Nije pronadjen ni jedan student.</p>
+
+</div>

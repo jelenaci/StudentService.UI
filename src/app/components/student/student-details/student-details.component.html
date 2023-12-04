@@ -1,0 +1,84 @@
+<div class="container my-5">
+  <h3 class="mb-3">Detalji o studentu</h3>
+  <div class="row">
+    <div class="col-6">
+      <div *ngIf="studentDetails">
+        <table class="table">
+
+          <thead>
+
+            <tr>
+
+              <th scope="col">ID</th>
+              <th scope="col">Ime</th>
+              <th scope="col">Prezime</th>
+              <th scope="col">Broj Indeksa</th>
+              <th scope="col">Datum Rodjenja</th>
+              <th scope="col">Adresa</th>
+              <th scope="col">Telefon</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            <tr>
+
+              <td>{{ studentDetails.studentID }}</td>
+              <td>{{ studentDetails.ime }}</td>
+              <td>{{ studentDetails.prezime }}</td>
+              <td>{{ studentDetails.brojIndeksa }}</td>
+              <td>{{ studentDetails.datumRodjenja | date: 'yyyy-MM-dd' }}</td>
+              <td>{{ studentDetails.adresa }}</td>
+              <td>{{ studentDetails.telefon }}</td>
+
+            </tr>
+          </tbody>
+        </table>
+
+        
+        <div *ngIf="polozeniIspiti && predmetDetails && predmetDetails.length > 0 && polozeniIspiti.length > 0">
+
+          <h4>Položeni ispiti</h4>
+
+          <table class="table">
+
+            <thead>
+
+              <tr>
+                <th>Položeni Ispit ID</th>
+                <th>Datum Polaganja</th>
+                <th>Ocena</th>
+                <th>Predmet ID</th>
+                <th>Naziv Predmeta</th>
+              </tr>
+              
+            </thead>
+
+            <tbody>
+
+              <tr *ngFor="let ispit of polozeniIspiti, let i =index">
+                <td>{{ ispit.polozenIspit }}</td>
+                <td>{{ ispit.datumPolaganja | date: 'yyyy-MM-dd' }}</td>
+                <td>{{ ispit.ocena }}</td>
+                <td>{{ ispit.predmetID }}</td>
+                <td>{{ predmetDetails[i].naziv }}</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+        <div *ngIf="polozeniIspiti.length==0">
+          <p>Student nema položen ispit.</p>
+        </div>  
+        
+
+        <div *ngIf="!studentDetails">
+          <p>Student nije pronađen.</p>
+        </div>
+
+      </div>
+   </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="container" my-5>
+
+    <h3 class="mb-3">Dodaj novog studenta</h3>
+    <div class="row">
+        <div class="col-6">
+
+            <form #form="ngForm" (ngSubmit)="addStudent()">
+
+                <div class="mb-3">
+                  <label for="ime" class="form-label">Ime</label>
+                  <input type="text" class="form-control" id="ime"  name="ime" [(ngModel)] = "addStudentRequest.ime">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="prezime" class="form-label">Prezime</label>
+                    <input type="text" class="form-control" id="prezime" name="prezime" [(ngModel)] = "addStudentRequest.prezime">
+                  </div>
+
+                <div class="mb-3">
+                  <label for="brojIndeksa" class="form-label">Broj indeksa</label>
+                  <input type="text" class="form-control" id="brojIndeksa" name="brojIndeksa" [(ngModel)] = "addStudentRequest.brojIndeksa">
+                </div>
+
+                <div class="mb-3">
+                  <label for="datum" class="form-label">Datum rodjenja</label>
+                  <input type="date" class="form-control" id="datum" name="datum" [(ngModel)] = "addStudentRequest.datumRodjenja">
+                </div>
+
+                <div class="mb-3">
+                  <label for="adresa" class="form-label">Adresa</label>
+                  <input type="text" class="form-control" id="adresa" name="adresa" [(ngModel)] = "addStudentRequest.adresa">
+                </div>
+
+                <div class="mb-3">
+                  <label for="tel" class="form-label">Broj telefona</label>
+                  <input type="text" class="form-control" id="tel" name="tel" [(ngModel)] = "addStudentRequest.telefon">
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Sacuvaj</button>
+
+              </form>
+        </div>
+    </div>
+</div>

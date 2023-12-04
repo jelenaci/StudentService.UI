@@ -1,0 +1,15 @@
+
+<form (ngSubmit)="login()" class="login-form">
+  
+    <h3>Prijavi se</h3>
+    <br>
+
+    <label for="korisnicko_ime">Korisničko ime:</label>
+    <input type="text" id="korisnicko_ime" [(ngModel)]="loginRequest.korisnicko_ime" [ngModelOptions]="{standalone: true}" required>
+
+    <label for="lozinka">Lozinka:</label>
+    <input type="password" id="lozinka" [(ngModel)]="loginRequest.lozinka" [ngModelOptions]="{standalone: true}" required>
+
+    <button type="submit">Prijavi se</button>
+</form>
+  
